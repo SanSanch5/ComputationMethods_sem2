@@ -22,3 +22,5 @@ while abs(delta) > eps
 end
 
 x = x.';
+
+end
