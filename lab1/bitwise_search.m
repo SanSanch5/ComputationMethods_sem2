@@ -1,4 +1,4 @@
-function [x, N] = bitwise_search(a, b, eps)
+function [x, x0, N] = bitwise_search(a, b, eps)
 delta = (b-a)/4;
 x0 = a;
 f0 = f(a);

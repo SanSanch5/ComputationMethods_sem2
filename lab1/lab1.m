@@ -7,8 +7,7 @@ y = arrayfun(@f, x);
 
 eps_array = [10^-2, 10^-4, 10^-6];
 for eps = eps_array
-    [x_solution_array, N] = bitwise_search(-1, 0, eps);
-    x_min = x_solution_array(end);
+    [x_solution_array, x_min, N] = bitwise_search(-1, 0, eps);
     fprintf('Значение eps: %f\n', eps);
     fprintf('Значение x*: %.8f\n', x_min);
     fprintf('Значение функции f(x*): %.8f\n', f(x_min));
