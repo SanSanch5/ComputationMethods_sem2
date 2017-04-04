@@ -1,12 +1,12 @@
 function x = bitwise_search(a, b, eps)
 delta = (b-a)/4;
 x0 = a;
-f0 = variant20_function(a);
+f0 = f(a);
 x = x0;
 
 while abs(delta) > eps
     x1 = x0 + delta;
-    f1 = variant20_function(x1);
+    f1 = f(x1);
     x = [x; x1];
     
     if f0 > f1
@@ -20,3 +20,5 @@ while abs(delta) > eps
     f0 = f1;
     delta = -delta/4;
 end
+
+x = x.';
