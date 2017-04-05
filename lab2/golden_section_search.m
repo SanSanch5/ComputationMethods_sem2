@@ -18,7 +18,6 @@ while l > 2*eps
         f2 = f1;
         x1 = b - tau*l;
         f1 = f(x1);
-        N = N+1;
     else
         a = x1;
         l = b-a;
@@ -26,10 +25,10 @@ while l > 2*eps
         f1 = f2;
         x2 = a + tau*l;
         f2 = f(x2);
-        N = N+1;
     end
-        segment = [a, b];
-        segments = [segments; segment];
+    N = N+1;
+    segment = [a, b];
+    segments = [segments; segment];
 end
 
 x_min = (a + b) / 2;

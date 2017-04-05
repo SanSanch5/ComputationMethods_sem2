@@ -1,6 +1,6 @@
 clc;
 
-draw_solution_array = true;
+draw_solution_array = false;
 
 x = -1:1/100:0;
 y = arrayfun(@f, x);
