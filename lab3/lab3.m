@@ -7,14 +7,12 @@ y = arrayfun(@f, x);
 
 eps_array = [10^-2, 10^-4, 10^-6];
 for eps = eps_array
-    [segments, x_min, N] = golden_section_search(-1, 0, eps);
+    [segments, x_min, N] = parabolic(-1, 0, eps);
 
-    fprintf('Значение eps: %f\n', eps);
+    fprintf('Значение eps: %.10e\n', eps);
     fprintf('Значение x*: %.8f\n', x_min);
     fprintf('Значение функции f(x*): %.8f\n', f(x_min));
     fprintf('Количество итераций: %d\n\n', N);
-    tmp = x_min+0.54321;
-    fprintf('x*+0.54321: %.10e\n', tmp);
     
     if ~draw_solution_array
         segments = [];
@@ -27,7 +25,7 @@ for eps = eps_array
         fprintf('[\t%f\t,\t%f\t]\n', segments(row,1), segments(row,2));
     end
     fprintf('\n')
-
-    figure('Name', strcat('Точность: ', num2str(eps)),'NumberTitle', 'off');
-    plot(x, y, '-', x_min, f(x_min), 'ro') 
 end
+
+figure('Name', strcat('Точность: ', num2str(eps)),'NumberTitle', 'off');
+plot(x, y, '-', x_min, f(x_min), 'ro');

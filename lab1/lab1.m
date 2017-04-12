@@ -5,13 +5,15 @@ draw_solution_array = false;
 x = -1:1/100:0;
 y = arrayfun(@f, x);
 
-eps_array = [10^-2, 10^-4, 10^-6];
+eps_array = [10^-2, 10^-4, 10^-8];
 for eps = eps_array
     [x_solution_array, x_min, N] = bitwise_search(-1, 0, eps);
-    fprintf('Значение eps: %f\n', eps);
+    fprintf('Значение eps: %.10f\n', eps);
     fprintf('Значение x*: %.8f\n', x_min);
     fprintf('Значение функции f(x*): %.8f\n', f(x_min));
     fprintf('Количество итераций: %d\n', N);
+    tmp = x_min+0.54321;
+    fprintf('x*+0.54321: %.10e\n', tmp);
 
     if ~draw_solution_array
         x_solution_array = [];
